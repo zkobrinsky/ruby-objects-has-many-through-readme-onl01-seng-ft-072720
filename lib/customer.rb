@@ -23,13 +23,15 @@ class Customer
   end
 
   def waiters
-    waiters = []
-    Meal.all.each do |meal|
-      if meal.customer == self
-        waiters << meal.waiter
-      end
-    end
-    waiters
+    meals.collect {|meal| meal.waiter}
+
+    # waiters = []
+    # Meal.all.each do |meal|
+    #   if meal.customer == self
+    #     waiters << meal.waiter
+    #   end
+    # end
+    # waiters
   end
 
 
