@@ -25,12 +25,9 @@ class Waiter
   end
 
   def best_tipper
-    # binding.pry
-    #
     tips = Meal.all.collect{|meal| meal.tip}
-    tips.sort
+    tips.sort!
     tips.reverse!
-    binding.pry
     Meal.all.detect{|meal| meal.tip == tips[0]}.customer
   end
 
